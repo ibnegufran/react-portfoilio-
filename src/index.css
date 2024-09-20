@@ -34,13 +34,14 @@ html{
 
 }
 .shadow{
-    background: rgba(15, 15, 15, 0.453);
+    background: rgba(5, 5, 5, 0.384);
 }
 
 .cursor{
     height: 20px;
     width: 20px;
     background-image: radial-gradient(black, rgba(0, 0, 0, 0.67) , rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.20) );
+
     border-radius: 50%;
     position: fixed;
     z-index: 2;

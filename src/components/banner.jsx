@@ -53,7 +53,7 @@ window.removeEventListener("scroll", controlScroll);
       <div className="cursor"></div>
       <div className="cursor"></div>
     </div>
-    <div className='home relative w-[100vw]'>
+    <div className='home relative w-[100vw] '>
       
     <video autoPlay muted loop className='w-screen h-screen absolute top-0 left-0 z-0 object-cover'>
         <source src="../images/bgvid.mp4" type="video/mp4"/>
