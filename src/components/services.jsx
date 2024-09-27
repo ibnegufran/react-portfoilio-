@@ -1,17 +1,45 @@
-import React from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import React, { useContext, useEffect } from 'react'
 import { CiDatabase } from 'react-icons/ci'
 import { FaRegLightbulb } from 'react-icons/fa'
 import { HiMiniCodeBracket } from 'react-icons/hi2'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// import TextHeader from './TextHeader'
+// import { Color, Title1, Title2 } from '../../context/context'
+gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
+    useGSAP(()=>{
+        gsap.from('.services .card-con .card',{
+            x:-2000, 
+          //  delay:1,
+           duration:2,
+           stagger:1,
+           scrollTrigger:{
+             trigger:".services .card-con .card",
+             scrub:2,
+             start:"top 50%",
+             end:'top 80%',
+             
+             markers:true
+     
+           }
+         })
+
+    })
+  
+
+  
   return (
     <>
-    <div className="services flex justify-center items-center pb-[4rem] relative pt-[4rem]">
+    <div className="services flex justify-center items-center pb-[4rem] relative pt-[4rem]" id='services'>
         <div className="w-full">
-            <div className="header text-center relative">
-                <h2 className='text-yellow-500 text-[2rem] my-2 capitalize font-bold'>my services</h2>
-                <h1 className='text-white text-[4rem] my-4 capitalize '>i'm available for hire</h1>
-            </div>
+        <div className="header text-center capitalize">
+        <h5 className="text-yellow-500 text-[2rem] font-bold">my services</h5>
+        <h5 className={`text-white text-[4.5rem] fw-200 mt-4`}>I'm Available For Hire</h5>
+      </div>
         <div className="card-con con">
         <div className="card flex flex-col justify-center items-center py-12 rounded-md px-6">
             <div className="img"><FaRegLightbulb className="text-[6rem] text-yellow-500" /></div>

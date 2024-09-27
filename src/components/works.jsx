@@ -114,59 +114,59 @@ const Works = () => {
   }, [images]);
  
   return (
-    <div className="main py-[6rem] w-screen h-[100vh] relative mt-[8rem]">
-      <div className="frames w-screen  h-[100vh] absolute top-0 left-0 z-0">
-        <canvas ref={imageRef} className="w-full h-screen canvas text-center"></canvas>
+    <div className="main pb-[4rem]  py-[7rem] w-screen min-h-[190vh] md:min-h-[100vh] relative mt-[8rem] " >
+      <div className="frames w-screen  h-full md:h-[100vh] absolute top-0 left-0 z-0">
+        <canvas ref={imageRef} className="w-full h-full md:h-[100vh] canvas text-center"></canvas>
       </div>
 
-      <div className="shadow overlay absolute top-0 left-0 w-full h-screen bg-black/50 z-1"></div>
+      <div className="shadow overlay absolute top-0 left-0 w-full h-full bg-black/50 z-1"></div>
    
-      <div className="container px-[4rem] w-full text-center h-screen bg-transparent absolute top-0 left-0 z-20 flex justify-center items-center">
-        <div className="sub-con md:w-[70vw] flex justify-center items-center gap-[4rem] ">
+      <div className="container px-[4rem] w-full text-center h-full bg-transparent absolute top-0 left-0 z-20 flex justify-center items-center">
+        <div className=" sub-con md:w-[70vw] flex justify-center items-center gap-[4rem]  xl:flex-nowrap md:flex-row ">
       <div className="live-projects">
-        <h3 className="text-white text-[3.5rem] capitalize font-bold text-start mb-16">live projects</h3>
+        <h3 className="text-white text-[3.5rem] capitalize font-bold text-start mb-8">live projects</h3>
 
-        <div className="box mt-4 text-start bg-gray-600/10 p-8 rounded-md">
+        <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
           <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">apr-2024 - may-2024</span>
           <div className="title text-white text-[2rem] capitalize my-4">E-book store</div>
           <p className="desc text-gray-300 text-[1.2rem] capitalize ">i created this website using HTML , CSS ,JS ,PHP and used MYSQL as database . 
            also it has admin panel so that admin can manage whole website 
           </p>
-          <p className="desc text-gray-300 text-[1.4rem] ">https://booksnaps.000webhostapp.com</p>
+          <a href="https://booksnaps.000webhostapp.com" className="desc text-white text-[1.4rem] px-4 py-2 bg-yellow-500 inline-block rounded-md mt-4 capitalize cursor-pointer hover:bg-gray-900 transition-all">live preview</a>
         </div>
-        <div className="box mt-4 text-start bg-gray-600/10 p-8 rounded-md">
+        <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
           <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">july-2024 - aug-2024</span>
           <div className="title text-white text-[2rem] capitalize my-4">expense managment system</div>
           <p className="desc text-gray-300 text-[1.2rem] capitalize ">i created this website using REACT JS ,PRIME REACT, EXPRESS JS , TAILWIND CSS , NODE JS  and used MONGODB as database . 
           in this website user can store their transactions data and can analyze it periodically</p>
-          <p className="desc text-gray-300 text-[1.4rem] ">https://abexpense.netlify.app/</p>
+          <a href="https://abexpense.netlify.app/"  className="desc text-white text-[1.4rem] px-4 py-2 bg-yellow-500 inline-block rounded-md mt-4 capitalize cursor-pointer hover:bg-gray-900 transition-all">live preview</a>
         </div>
-        <div className="box mt-4 text-start bg-gray-600/10 p-8 rounded-md">
+        <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
           <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">jan-2024 - jan-2024</span>
           <div className="title text-white text-[2rem] capitalize my-4">E-commerce gadget website</div>
           <p className="desc text-gray-300 text-[1.2rem] capitalize ">i created this website using REACT JS , PRIME REACT, TAILWIND CSS .
           this website is just like amazon , flipkart . user can buy different home gadgets </p>
-          <p className="desc text-gray-300 text-[1.4rem] ">https://alkahf.netlify.app/</p>
+          <a href="https://alkahf.netlify.app/"  className="desc text-white text-[1.4rem] px-4 py-2 bg-yellow-500 inline-block rounded-md mt-4 capitalize cursor-pointer hover:bg-gray-900 transition-all">live preview</a>
         </div>
        
       </div>
-      <div className="education">
-      <h3 className="text-white text-[3.5rem] capitalize font-bold text-start mb-16">education</h3>
+      <div className="education ">
+      <h3 className="text-white text-[3.5rem] capitalize font-bold text-start mb-8">education</h3>
 
-<div className="box mt-4 text-start bg-gray-600/10 p-8 rounded-md">
+<div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
   <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">apr-2022 - may-2025</span>
   <div className="title text-white text-[2rem] capitalize my-4">bachelor's of computer application</div>
-  <p className="desc text-gray-300 text-[1.4rem] capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aperiam quasi reprehenderit harum at a vitae quam. Libero unde voluptatem tempora hic distinctio veniam cumque obcaecati, quae labore quibusdam iusto.</p>
+  <p className="desc text-gray-300 text-[1.2rem] capitalize">I am currently pursuing a Bachelor of Computer Applications (BCA) in my 3rd year at <b>Yashwantrao Chavan Maharashtra Open University (YCMOU) </b>, where I am developing strong foundational skills in computer science and software development</p>
 </div> 
-<div className="box mt-4 text-start bg-gray-600/10 p-8 rounded-md">
+<div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
   <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">apr-2022 - may-2025</span>
-  <div className="title text-white text-[2rem] capitalize my-4">bachelor's of computer application</div>
-  <p className="desc text-gray-300 text-[1.4rem] capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aperiam quasi reprehenderit harum at a vitae quam. Libero unde voluptatem tempora hic distinctio veniam cumque obcaecati, quae labore quibusdam iusto.</p>
+  <div className="title text-white text-[2rem] capitalize my-4">Higher Secondary School Certificate (HSC)</div>
+  <p className="desc text-gray-300 text-[1.2rem] capitalize">I completed my Higher Secondary Education (HSC) in the Science stream with a focus on Mathematics, achieving 80% from <b>S.H.A. Rais high school and jr college</b>, which helped build a strong foundation in analytical thinking.</p>
 </div> 
-<div className="box mt-4 text-start bg-gray-600/10 p-8 rounded-md">
+<div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
   <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">apr-2022 - may-2025</span>
   <div className="title text-white text-[2rem] capitalize my-4">bachelor's of computer application</div>
-  <p className="desc text-gray-300 text-[1.4rem] capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aperiam quasi reprehenderit harum at a vitae quam. Libero unde voluptatem tempora hic distinctio veniam cumque obcaecati, quae labore quibusdam iusto.</p>
+  <p className="desc text-gray-300 text-[1.2rem] capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aperiam quasi reprehenderit harum at a vitae quam. Libero unde voluptatem tempora hic distinctio veniam cumque obcaecati, quae labore quibusdam iusto.</p>
 </div> 
 
       </div>

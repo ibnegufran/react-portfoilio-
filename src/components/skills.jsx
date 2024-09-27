@@ -1,10 +1,32 @@
 import React from 'react'
 import './skill.css'
 import Sphere from './sphere'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Skills = () => {
+  useGSAP(()=>{
+    gsap.from('#skills',{
+       scale:0,
+       delay:1,
+       duration:.4,
+       scrollTrigger:{
+         trigger:"#skills",
+         scrub:2,
+         start:"top 100%",
+         end:'top 80%',
+         markers:true
+ 
+       }
+     })
+
+})
+
   return (
-    <div className="  banner">
+    <div className="banner" id='skills'>
 
       <h2 className='mt-[4rem] text-[4.5rem] text-center w-full capitalize font-bold text-yellow-500'>my tech stack</h2>
         <div className="slider flex items-center" style={{"--quantity":11}}>

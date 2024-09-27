@@ -1,10 +1,69 @@
+import { useGSAP } from "@gsap/react";
 import ProgressBar from "@ramonak/react-progress-bar";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 import React from "react";
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  useGSAP(()=>{
+    
+    const tl=gsap.timeline();
+
+    gsap.from('.image',{
+       x:-1000, 
+      delay:1,
+      duration:1.2,
+      scrollTrigger:{
+        trigger:".image",
+        scrub:2,
+    start: "top 75%", // When the top of image reaches 75% of viewport
+        end: "top 25%", // When the top reaches 25%
+        toggleActions: "play reverse play reverse",        markers:true
+// 
+      }
+    })
+    gsap.from('.about .text',{
+      x:1000, 
+     delay:1,
+     duration:1.2,
+     scrollTrigger:{
+      trigger:".text",
+      scrub:2,
+    start: "top 75%", // When the top of image reaches 75% of viewport
+        end: "top 25%", // When the top reaches 25%
+        toggleActions: "play reverse play reverse",// 
+      markers:true
+
+    }
+
+   })
+
+   gsap.from('.levels',{
+  scale:0,
+  //  delay:1,
+   duration:.2,
+   scrollTrigger:{
+    trigger:".levels",
+    scrub:1,
+    start: "top 80%", // Appears when levels reach 80% of viewport
+    end: "top 50%",
+    toggleActions: "play reverse play reverse",
+
+    markers:true
+
+  }
+
+ })
+    
+  })
+
+
+
+
   return (
     <>
-      <div className="about w-[80vw] mx-auto my-[5rem] flex justify-center flex-wrap  ">
+      <div className="about w-[80vw] mx-auto my-[5rem] flex justify-center flex-wrap" >
         <div className="image md:mr-16">
           <img
             src="../images/about2.jfif"
@@ -33,7 +92,7 @@ const About = () => {
           <a
             href="abdurrahman ansari 2024.pdf"
             target="_blank"
-            className="inline-block text-[1.8rem] font-bold bg-yellow-500 px-6 py-4 mt-[2rem] text-center text-white capitalize rounded-md"
+            className="inline-block text-[1.8rem] font-bold bg-yellow-500 px-6 py-4 mt-[2rem] text-center text-white capitalize rounded-md cursor-pointer hover:bg-gray-900 transition-all"
           >
             download CV
           </a>
@@ -162,7 +221,7 @@ const About = () => {
         <div className="">
           <div className="flex w-full justify-between">
             {" "}
-            <p className="text-[1.8rem] font-bold capitalize">tailwind</p>
+            <p className="text-[1.8rem] font-bold capitalize">tailwind CSS</p>
             <p className="text-[1.4rem]  capitalize">80%</p>
           </div>
           <div className="progress " style={{ height: ".5rem" }}>
