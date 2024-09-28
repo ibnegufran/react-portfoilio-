@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useRef } from "react";
 import TextHeader from "./TextHeader";
 import { Color, Title1, Title2 } from "../../context/context";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,24 +8,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Portfolio = () => {
-  useGSAP(()=>{
-    gsap.from('.portfolio .portfolio-con .card',{
-        x:-2000, 
-       delay:5,
-       duration:1,
-       stagger:.7,
-       scrollTrigger:{
-         trigger:".portfolio .portfolio-con .card",
-         scrub:2,
-         start:"top 50%",
-         end:'top 80%',
-         
-         markers:true
- 
-       }
-     })
+  // const portfolio=useRef(null);
+  const portfolioRef = useRef(null);
 
-},[])
+  
     let boxData=[
         {
             image:'../images/e-book.webp',
@@ -66,9 +52,25 @@ const Portfolio = () => {
     ];
   
   
-    
+    useGSAP(()=>{
+      gsap.from('#portfolio',{
+         scale:0,
+         delay:1,
+         duration:.4,
+         scrollTrigger:{
+           trigger:"#portfolio",
+           scrub:2,
+           start:"top 100%",
+           end:'top 80%',
+           markers:true
+   
+         }
+       })
+  
+  })
+  
   return (
-    <div className="portfolio my-16 " >
+    <div className="portfolio my-16 " ref={portfolioRef}>
      <div className="header text-center capitalize">
         <h5 className="text-yellow-500 text-[2rem] font-bold">portfolio</h5>
         <h5 className={` text-[4.5rem] fw-200 mt-4`}>i love what i do</h5>

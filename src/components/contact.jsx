@@ -14,11 +14,11 @@ const Contact = () => {
 useGSAP(()=>{
   gsap.from('.div1 input',{
     x:-1000, 
-   delay:1,
-   duration:1.2,
+   delay:3,
+   duration:2.2,
    stagger:1,
    scrollTrigger:{
-    trigger:".div1 input",
+    trigger:".div1",
     scrub:2,
   start: "top 75%", // When the top of image reaches 75% of viewport
       end: "top 25%", // When the top reaches 25%
@@ -29,10 +29,6 @@ useGSAP(()=>{
 
  })
 })
-
-
-
-
   return (
    <div className="" id='contact'>
     <div className="container w-screen py-[8rem] px-16">

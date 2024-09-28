@@ -12,7 +12,7 @@ const Testimonials = () => {
        opacity:0,
        y:-500,
        delay:1,
-       duration:12.5,
+       duration:1.5,
       //  stagger:1,
        scrollTrigger:{
          trigger:".testimo-con .slide",
