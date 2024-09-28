@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Works = () => {
   const imageRef = useRef(null);
+  const containerRef = useRef(null);  
   const [images, setImages] = useState([]);
   const [context, setContext] = useState(null);
 
@@ -87,44 +88,42 @@ const Works = () => {
   }, [context]);
 
   // GSAP scroll-triggered animation
-  useGSAP(() => {
+  useEffect(() => {
     if (images.length > 0) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".works", // The container that triggers the scroll animation
-          start: "top 0%", // Start when the top of the container hits the top of the viewport
-          end: "bottom 0%", // End when the bottom of the container hits the bottom of the viewport
-          scrub: 2, // Smoothly "scrub" the timeline as you scroll
-          pin: true, // Pin the container during the scroll
-          pinSpacing:true,
-          markers: true,
-          onLeaveBack: () => {
-            // If you need to handle going back
-            console.log("Leaving works section");
+      // Create a GSAP context for the animations
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,  // Pinning the entire component
+            start: "top top",                // Start when the top of the container hits the top of the viewport
+            end: `+=${window.innerHeight * 2}`, // End after scrolling twice the window height
+            scrub: 2,                        // Smooth scrub
+            pin: true,                       // Pin the container during scroll
+            pinSpacing: true,                // Keep space after pinning
+            // markers: true,                   // Debug markers
           },
-          
-         // Enable markers for debugging (optional)
-        },
-      });
+        });
 
-      // Animate the frames based on scroll
-      tl.to(frames, {
-        currentIndex: frames.maxIndex,
-        duration:1.2,
-        onUpdate: () => {
-          loadImgFunction(Math.floor(frames.currentIndex));
-        },
-        ease: "none", // Disable easing for smooth animation
-      });
+        // Animate the frames based on scroll
+        tl.to(frames, {
+          currentIndex: frames.maxIndex,
+          duration: 1.2,
+          onUpdate: () => {
+            loadImgFunction(Math.floor(frames.currentIndex));
+          },
+          ease: "none", // Disable easing for smooth animation
+        });
+      }, containerRef); // Scope the context to the containerRef
+
+      // Cleanup on unmount
       return () => {
-        // Clean up the ScrollTrigger on component unmount
-        tl.kill();
+        ctx.revert(); // This will kill all animations and ScrollTriggers within this context
       };
     }
   }, [images]);
  
   return (
-    <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[190vh] md:min-h-[100vh] relative mt-[8rem] overflow-auto" id="works" >
+    <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[190vh] md:min-h-[100vh] relative mt-[8rem] overflow-auto" id="works" ref={containerRef}>
       <div className="frames w-screen  h-full md:h-[100vh] absolute top-0 left-0 z-0">
         <canvas ref={imageRef} className="w-full h-full md:h-[100vh] canvas text-center"></canvas>
       </div>

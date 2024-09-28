@@ -18,7 +18,7 @@ const Skills = () => {
          scrub:2,
          start:"top 100%",
          end:'top 80%',
-         markers:true
+        //  markers:true
  
        }
      })

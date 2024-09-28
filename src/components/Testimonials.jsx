@@ -19,7 +19,7 @@ const Testimonials = () => {
          scrub:2,
          start:"top 10%",
          end:'top 60%',
-                  markers:true
+                  // markers:true
  
        }
      })

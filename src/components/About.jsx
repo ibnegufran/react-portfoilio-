@@ -19,7 +19,7 @@ const About = () => {
         scrub:2,
     start: "top 75%", // When the top of image reaches 75% of viewport
         end: "top 25%", // When the top reaches 25%
-        toggleActions: "play reverse play reverse",        markers:true
+        toggleActions: "play reverse play reverse",     
 // 
       }
     })
@@ -33,7 +33,6 @@ const About = () => {
     start: "top 75%", // When the top of image reaches 75% of viewport
         end: "top 25%", // When the top reaches 25%
         toggleActions: "play reverse play reverse",// 
-      markers:true
 
     }
 
@@ -50,7 +49,6 @@ const About = () => {
     end: "top 50%",
     toggleActions: "play reverse play reverse",
 
-    markers:true
 
   }
 

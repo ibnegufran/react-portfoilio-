@@ -23,7 +23,7 @@ const Services = () => {
              start:"top 50%",
              end:'top 80%',
              
-             markers:true
+            //  markers:true
      
            }
          })

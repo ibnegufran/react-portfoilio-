@@ -1,14 +1,15 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import React from 'react'
+import React, { useRef } from 'react'
 import { BsEnvelope } from 'react-icons/bs'
 import { CiMobile1 } from 'react-icons/ci'
 import { IoHomeOutline } from 'react-icons/io5'
 import { PiEnvelopeLight } from 'react-icons/pi'
 import { TfiHome } from 'react-icons/tfi'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-
+import emailjs from '@emailjs/browser';
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 gsap.registerPlugin(ScrollTrigger);
 const Contact = () => {
 useGSAP(()=>{
@@ -23,25 +24,46 @@ useGSAP(()=>{
   start: "top 75%", // When the top of image reaches 75% of viewport
       end: "top 25%", // When the top reaches 25%
       toggleActions: "play reverse play reverse",// 
-    markers:true
+    // markers:true
 
   }
 
  })
 })
+
+const form = useRef();
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm('service_kz04jyb', 'template_obej9eu', form.current,'rMNQWFC9p-9TgKC2V')
+    .then(
+      () => {
+        console.log('SUCCESS!');
+      },
+      (error) => {
+        console.log('FAILED...', error.text);
+      },
+    );
+};
+  const notify = () => toast("your message sent successfully!");
+  
+  
   return (
-   <div className="" id='contact'>
+   <div className="" id='contact' >
+      <ToastContainer className="text-[1.8rem] capitalize "/>
     <div className="container w-screen py-[8rem] px-16">
     <div className="header text-center capitalize ">
         <h5 className="text-yellow-500 text-[2rem] font-bold">have question ?</h5>
         <h5 className={` text-[4.5rem] fw-200 mt-4`}>contact me now</h5>
       </div>
       <div className="form-con my-16 w-full md:w-[60vw] mx-auto md:min-h-auto    flex flex-col justify-center items-center">
-       <form action="" className='w-full  h-full '>
+       <form action="" className='w-full  h-full ' onSubmit={sendEmail} ref={form}>
       <div className="w-full h-full flex flex-col md:flex-row gap-[4rem] justify-center items-center">
       <div className="div1 w-full md:w-[50%] gap-12 md:gap-12 h-full flex flex-col justify-between items-center">
-        <input placeholder='please enter your text' type="text" name="text" id="" className='w-[100%] block  outline-none shadow-md p-4 text-[1.5rem] rounded-lg border-0 border-gray-200  bg-gray-100'/>
-        <input placeholder='please enter your email' type="email" name="email" id="" className='w-[100%] block  outline-none shadow-md p-4 text-[1.5rem] rounded-lg border-0 border-gray-200  bg-gray-100'/>
+        <input placeholder='please enter your name' type="text" name="from_name" id="" className='w-[100%] block  outline-none shadow-md p-4 text-[1.5rem] rounded-lg border-0 border-gray-200  bg-gray-100'/>
+        <input placeholder='please enter your email' type="email" name="from_email" id="" className='w-[100%] block  outline-none shadow-md p-4 text-[1.5rem] rounded-lg border-0 border-gray-200  bg-gray-100'/>
         <input placeholder='please enter your number' type="number" name="number" id="" className='w-[100%] block  outline-none shadow-md p-4 text-[1.5rem] rounded-lg border-0 border-gray-200  bg-gray-100'/>
         </div>
         <div className="div2 w-full md:w-[50%] h-[28vh] ">
@@ -49,7 +71,7 @@ useGSAP(()=>{
 
         </div>
       </div>
-        <input value={"submit form"} type="submit" className='py-3 px-8 bg-gray-900 text-white capitalize block  mx-auto mt-16 rounded-md text-[1.5rem] cursor-pointer hover:bg-yellow-500 transition-all'/>
+        <input value={"submit form"} type="submit"  className='py-3 px-8 bg-gray-900 text-white capitalize block  mx-auto mt-16 rounded-md text-[1.5rem] cursor-pointer hover:bg-yellow-500 transition-all' onClick={notify}/>
        
        </form>
 

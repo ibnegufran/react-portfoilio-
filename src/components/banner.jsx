@@ -72,12 +72,12 @@ window.removeEventListener("scroll", controlScroll);
       duration:.8,
       // stagger:.3
     })
-    tl.from('.mid-heading p',{
-      scale:0,
-       // delay:.6,
-       duration:.8,
-       // stagger:.3
-     })
+    // tl.from('.mid-heading p',{
+    //   scale:0,
+    //    delay:1,
+    //    duration:.8,
+    //    // stagger:.3
+    //  })
   })
   return (
     <>
