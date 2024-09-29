@@ -112,10 +112,9 @@ const Works = () => {
             end: `bottom 0`, // End after scrolling twice the window height
             scrub: 2,                        // Smooth scrub
             pin: true,              
-            anticipatePin: 1,  // Helps smooth the pinning process
-            invalidateOnRefresh: true,          // Pin the container during scroll
+                // Pin the container during scroll
             // pinSpacing: false,                // Keep space after pinning
-            markers: true,    
+            // markers: true,    
             // scroller:containerRef.current,               // Debug markers
           },
         });

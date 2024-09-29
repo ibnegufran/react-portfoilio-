@@ -22,7 +22,7 @@ const About = () => {
             scrub: 2,
             start: "top 50%",
             end: "top 60%",
-            markers: true,
+            // markers: true,
             toggleActions: "play reverse play reverse" // Controls behavior
           }
         });
@@ -36,7 +36,7 @@ const About = () => {
             scrub: 2,
             start: "top 50%",
             end: "top 60%",
-            markers: true,
+            // markers: true,
             toggleActions: "play reverse play reverse" // Add toggleActions
           }
         });
@@ -52,7 +52,7 @@ const About = () => {
     scrub:1,
     start: "top 80%", // Appears when levels reach 80% of viewport
     end: "top 50%",
-   marker:true
+  //  marker:true
 
   }
 
