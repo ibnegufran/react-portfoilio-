@@ -13,6 +13,10 @@ import 'react-toastify/dist/ReactToastify.css';
 gsap.registerPlugin(ScrollTrigger);
 const Contact = () => {
 useGSAP(()=>{
+  const mm=gsap.matchMedia()
+
+    
+  mm.add("(min-width: 800px)", function() {
   gsap.from('.div1 input',{
     x:-1000, 
    delay:3,
@@ -29,6 +33,7 @@ useGSAP(()=>{
   }
 
  })
+})
 })
 
 const form = useRef();

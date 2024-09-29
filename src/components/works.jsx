@@ -87,20 +87,36 @@ const Works = () => {
     }
   }, [context]);
 
+
+  useEffect(() => {
+    window.addEventListener("load",()=>preLoadImages())
+  
+    return () => {
+      window.removeEventListener("load",()=>preLoadImages())   
+     }
+  }, [])
+  
   // GSAP scroll-triggered animation
   useEffect(() => {
     if (images.length > 0) {
       // Create a GSAP context for the animations
+      const mm=gsap.matchMedia()
+
+    
+      mm.add("(min-width: 800px)", function() {
       const ctx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: containerRef.current,  // Pinning the entire component
-            start: "top top",                // Start when the top of the container hits the top of the viewport
-            end: `+=${window.innerHeight * 2}`, // End after scrolling twice the window height
+            start: "top 0",                // Start when the top of the container hits the top of the viewport
+            end: `bottom 0`, // End after scrolling twice the window height
             scrub: 2,                        // Smooth scrub
-            pin: true,                       // Pin the container during scroll
-            pinSpacing: true,                // Keep space after pinning
-            // markers: true,                   // Debug markers
+            pin: true,              
+            anticipatePin: 1,  // Helps smooth the pinning process
+            invalidateOnRefresh: true,          // Pin the container during scroll
+            // pinSpacing: false,                // Keep space after pinning
+            markers: true,    
+            // scroller:containerRef.current,               // Debug markers
           },
         });
 
@@ -119,13 +135,14 @@ const Works = () => {
       return () => {
         ctx.revert(); // This will kill all animations and ScrollTriggers within this context
       };
-    }
+    })
+  }
   }, [images]);
  
   return (
-    <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[190vh] md:min-h-[100vh] relative mt-[8rem] overflow-auto" id="works" ref={containerRef}>
-      <div className="frames w-screen  h-full md:h-[100vh] absolute top-0 left-0 z-0">
-        <canvas ref={imageRef} className="w-full h-full md:h-[100vh] canvas text-center"></canvas>
+    <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[190vh] md:min-h-[100vh] relative mt-[8rem] overflow-hidden" id="works" ref={containerRef}>
+      <div className="frames w-screen  h-full md:h-full absolute top-0 left-0 z-0 hidden md:inline-block">
+        <canvas ref={imageRef} className="w-full h-full md:h-full md:w-[100vw] canvas text-center relative"></canvas>
       </div>
 
       <div className="shadow overlay absolute top-0 left-0 w-full h-full bg-black/50 z-1"></div>

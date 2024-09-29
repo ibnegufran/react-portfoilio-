@@ -46,28 +46,41 @@ const Portfolio = () => {
       link: "https://thinkgame.netlify.app",
     },
   ];
+if(boxData){
 
+console.log("rendered")
   useGSAP(() => {
+    const mm=gsap.matchMedia()
+
+    
+    mm.add("(min-width: 800px)", function() {
     let tl= gsap.timeline();
     tl.from('#portfolio', {
       scale: 0,
       delay: 1,
       duration: 0.4,
       scrollTrigger: {
-        trigger: "#portfolio",
+        trigger: "#portfolio .portfolio-con .card",
         scrub: 2,
-        start: "top 0%",  // When the animation starts (adjust as needed)
-        end: 'top 100%',  
-        // pin: true,           // Pins the portfolio component in place
-        // pinSpacing: false,   // Disables the extra spacing after unpinning
-        // markers: true,     // Enable markers to debug ScrollTrigger behavior
-        // You can adjust this further depending on how you want the animation to trigger in sync with the image sequence
+        start: "top 300%",  // When the animation starts (adjust as needed)
+        end: 'top 80%',  
+        markers: true,   
       }
     });
+    window.addEventListener('load', () => {
+console.log("rendered aftrer refesh")
+
+      ScrollTrigger.refresh();
   });
 
+  return () => {
+      window.removeEventListener('load', ScrollTrigger.refresh);
+  };
+})
+  },[]);
+}
   return (
-    <div className="portfolio my-16 " id="portfolio" ref={portfolioRef}>
+    <div className="portfolio my-16 sticky block md:min-h-[80vh]" id="portfolio" ref={portfolioRef}>
       <div className="header text-center capitalize">
         <h5 className="text-yellow-500 text-[2rem] font-bold">portfolio</h5>
         <h5 className={` text-[4.5rem] fw-200 mt-4`}>I love what I do</h5>

@@ -9,6 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Skills = () => {
   useGSAP(()=>{
+    const mm=gsap.matchMedia()
+
+    
+    mm.add("(min-width: 800px)", function() {
     gsap.from('#skills',{
        scale:0,
        delay:1,
@@ -22,7 +26,7 @@ const Skills = () => {
  
        }
      })
-
+    })
 })
 
   return (

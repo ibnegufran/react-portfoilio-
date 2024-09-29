@@ -97,6 +97,10 @@ html{
 .card:hover .card-inner {
   transform: rotateY(180deg); /* Flip the card on hover */
 }
+.gsap-marker-start, .gsap-marker-end {
+  z-index: 9999 !important;
+  color: red; /* Optional: Change color if needed */
+}
 
 /* Define the front and back faces */
 .front, .back {
@@ -152,7 +156,6 @@ html{
 
 
 
-
 @media (max-width:980px) {
     html{
         overflow-x: hidden;
@@ -190,6 +193,12 @@ html{
       .slide.outside {
         transform: translateX(0); 
       }
+      .works{
+        background: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 54%)), url("../images/about.jpg") no-repeat ; 
+        background-position: center;
+        background-size: cover;
+      }
+      
       
 }
 

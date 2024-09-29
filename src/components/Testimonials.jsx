@@ -8,6 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 const Testimonials = () => {
 
   useGSAP(()=>{
+    const mm=gsap.matchMedia()
+
+    
+    mm.add("(min-width: 800px)", function() {
     gsap.from('.testimo-con .slide',{
        opacity:0,
        y:-500,
@@ -23,7 +27,7 @@ const Testimonials = () => {
  
        }
      })
-
+    })
 },[])
 const cardCon=useRef()
 const [currentIndex, setCurrentIndex] = useState(0);

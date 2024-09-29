@@ -11,7 +11,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
+  
     useGSAP(()=>{
+      const mm=gsap.matchMedia()
+
+    
+      mm.add("(min-width: 800px)", function() {
         gsap.from('.services .card-con .card',{
             x:-2000, 
           //  delay:1,
@@ -27,7 +32,7 @@ const Services = () => {
      
            }
          })
-
+        })
     })
   
 
