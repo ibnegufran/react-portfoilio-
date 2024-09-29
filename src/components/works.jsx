@@ -139,7 +139,7 @@ const Works = () => {
   }, [images]);
  
   return (
-    <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[190vh] md:min-h-[100vh] relative mt-[8rem] overflow-hidden" id="works" ref={containerRef}>
+    <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[190vh] md:min-h-[100vh] relative mt-[8rem] md:overflow-hidden" id="works" ref={containerRef}>
       <div className="frames w-screen  h-full md:h-full absolute top-0 left-0 z-0 hidden md:inline-block">
         <canvas ref={imageRef} className="w-full h-full md:h-full md:w-[100vw] canvas text-center relative"></canvas>
       </div>

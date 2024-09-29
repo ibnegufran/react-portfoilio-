@@ -197,6 +197,7 @@ html{
         background: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 54%)), url("../images/about.jpg") no-repeat ; 
         background-position: center;
         background-size: cover;
+        /* background-attachment: fixed; */
       }
       
       

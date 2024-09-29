@@ -81,7 +81,7 @@ window.removeEventListener("scroll", controlScroll);
   })
   return (
     <>
-      <div className="parent absolute flex gap-4 z-8">
+      <div className="parent absolute  gap-4 z-8 hidden md:flex">
     <div className="cursor"></div>
       <div className="cursor"></div>
       <div className="cursor"></div>

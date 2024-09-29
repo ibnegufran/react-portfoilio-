@@ -64,7 +64,7 @@ console.log("rendered")
         scrub: 2,
         start: "top 300%",  // When the animation starts (adjust as needed)
         end: 'top 80%',  
-        markers: true,   
+        // markers: true,   
       }
     });
     window.addEventListener('load', () => {
