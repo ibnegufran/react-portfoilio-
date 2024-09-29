@@ -70,13 +70,23 @@
         height: 60vh;
        padding-bottom: 10rem;
     }
+    .slider .item{
+      
+        transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        /* rotateY('110deg') */
+        translateZ(60px)
+        ;
+    }
     .banner .slider{
         top: 20%;
-        transform: perspective(1000px) rotateX(-10deg);
+        width: 100vw;
+        /* height: 100%; */
+        /* transform: perspective(1000000vw) rotateX(-18deg); */
     }
     .banner .slider .item img{
-        width: 15rem;
-        height: 15rem;
+        width: 10rem;
+        height: 10rem;
         
     }
 
@@ -84,9 +94,9 @@
 
     @keyframes autoRun{
         from{
-            transform: perspective(100000vw)  rotateX(-0deg) rotateY(0deg);
+            transform: perspective(10000px)  rotateX(-22deg) rotateY(0deg);
         }to{
-            transform: perspective(100000vw)  rotateX(-0deg) rotateY(360deg);
+            transform: perspective(10000px)  rotateX(-22deg) rotateY(360deg);
         }
     }
   
