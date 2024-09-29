@@ -62,14 +62,14 @@ window.removeEventListener("scroll", controlScroll);
     tl.from('.nav .links a',{
       opacity:0,
       y:-20,
-      delay:.6,
+      delay:.4,
       duration:.8,
       stagger:.09
     })
      tl.from('.mid-heading h1',{
      scale:0,
       // delay:.6,
-      duration:.8,
+      duration:.6,
       // stagger:.3
     })
     // tl.from('.mid-heading p',{
