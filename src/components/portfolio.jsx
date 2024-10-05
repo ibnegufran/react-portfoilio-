@@ -80,7 +80,7 @@ console.log("rendered aftrer refesh")
   },[]);
 }
   return (
-    <div className="portfolio my-16 sticky block md:min-h-[80vh]" id="portfolio" ref={portfolioRef}>
+    <div className="portfolio my-16 relative block md:min-h-[80vh]" id="portfolio" ref={portfolioRef}>
       <div className="header text-center capitalize">
         <h5 className="text-yellow-500 text-[2rem] font-bold">portfolio</h5>
         <h5 className={` text-[4.5rem] fw-200 mt-4`}>I love what I do</h5>

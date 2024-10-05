@@ -112,7 +112,8 @@ const Testimonials = () => {
         <h5 className="text-white text-[4.5rem] fw-200 mt-4">what they says</h5>
       </div>
       <div className="left h-full w-fit p-8 absolute left-[-6%] top-[50%] md:left-[10%] md:top-[40%] cursor-pointer "><button   onClick={() => first()}><FaAngleLeft  className="text-[4rem] text-yellow-500"/></button></div>
-      <div className="Right h-full w-fit p-8 absolute right-[-6%] top-[50%] md:right-[10%] md:top-[40%]  cursor-pointer "><button onClick={() =>second()}><FaAngleRight  className="text-[4rem] text-yellow-500"/></button></div>
+      <div className="Right h-full w-fit p-8 absolute right-[-6%] top-[50%] md:right-[10%] md:top-[40%]  cursor-pointer "><button onClick={() =>second()
+}><FaAngleRight  className="text-[4rem] text-yellow-500"/></button></div>
 
       <div className="testimo-con ml-4 md:ml-0  w-[95vw] md:w-[70vw] relative overflow-hidden mt-32 py-8 px-0 mx-auto md:px-4 ">
        

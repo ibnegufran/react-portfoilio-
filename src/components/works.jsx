@@ -103,12 +103,11 @@ const Works = () => {
         scrollTrigger: {
           trigger: ".works", // The container that triggers the scroll animation
           start: "top 0%", // Start when the top of the container hits the top of the viewport
-          end: "bottom 0%", // End when the bottom of the container hits the bottom of the viewport
+          end: "top 0%", // End when the bottom of the container hits the bottom of the viewport
           scrub: 2, // Smoothly "scrub" the timeline as you scroll
           pin: true, // Pin the container during the scroll
+          // pinSpacing: false, // This will remove the white space
           markers: true,
-          // scroller:"html"
-          // pinSpacing:false
         },
       });
 
@@ -122,12 +121,13 @@ const Works = () => {
         ease: "none", // Disable easing for smooth animation
       });
     }
+    
   }, [images]);
  
   return (
     <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[210vh] md:min-h-[100vh] relative mt-[8rem] md:overflow-hidden" id="works" ref={containerRef}>
       <div className="frames w-screen  h-full md:h-full absolute top-0 left-0 z-0 hidden md:inline-block">
-        <canvas ref={imageRef} className="w-full h-full md:h-full md:w-[100vw] canvas text-center fixed"></canvas>
+        <canvas ref={imageRef} className="w-full h-full md:h-full md:w-[100vw] canvas text-center relative"></canvas>
       </div>
 
       <div className="shadow overlay absolute top-0 left-0 w-full h-full bg-black/50 z-1"></div>
