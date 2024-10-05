@@ -99,49 +99,35 @@ const Works = () => {
   // GSAP scroll-triggered animation
   useEffect(() => {
     if (images.length > 0) {
-      // Create a GSAP context for the animations
-      const mm=gsap.matchMedia()
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".works", // The container that triggers the scroll animation
+          start: "top 0%", // Start when the top of the container hits the top of the viewport
+          end: "bottom 0%", // End when the bottom of the container hits the bottom of the viewport
+          scrub: 2, // Smoothly "scrub" the timeline as you scroll
+          pin: true, // Pin the container during the scroll
+          markers: true,
+          // scroller:"html"
+          // pinSpacing:false
+        },
+      });
 
-    
-      mm.add("(min-width: 800px)", function() {
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,  // Pinning the entire component
-            start: "top 0",                // Start when the top of the container hits the top of the viewport
-            end: `bottom 0`, // End after scrolling twice the window height
-            scrub: 2,                        // Smooth scrub
-            pin: true,              
-                // Pin the container during scroll
-            // pinSpacing: false,                // Keep space after pinning
-            // markers: true,    
-            // scroller:containerRef.current,               // Debug markers
-          },
-        });
-
-        // Animate the frames based on scroll
-        tl.to(frames, {
-          currentIndex: frames.maxIndex,
-          duration: 1.2,
-          onUpdate: () => {
-            loadImgFunction(Math.floor(frames.currentIndex));
-          },
-          ease: "none", // Disable easing for smooth animation
-        });
-      }, containerRef); // Scope the context to the containerRef
-
-      // Cleanup on unmount
-      return () => {
-        ctx.revert(); // This will kill all animations and ScrollTriggers within this context
-      };
-    })
-  }
+      // Animate the frames based on scroll
+      tl.to(frames, {
+        currentIndex: frames.maxIndex,
+        duration:1.2,
+        onUpdate: () => {
+          loadImgFunction(Math.floor(frames.currentIndex));
+        },
+        ease: "none", // Disable easing for smooth animation
+      });
+    }
   }, [images]);
  
   return (
-    <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[190vh] md:min-h-[100vh] relative mt-[8rem] md:overflow-hidden" id="works" ref={containerRef}>
+    <div className="works pb-[4rem]  py-[7rem] w-screen min-h-[210vh] md:min-h-[100vh] relative mt-[8rem] md:overflow-hidden" id="works" ref={containerRef}>
       <div className="frames w-screen  h-full md:h-full absolute top-0 left-0 z-0 hidden md:inline-block">
-        <canvas ref={imageRef} className="w-full h-full md:h-full md:w-[100vw] canvas text-center relative"></canvas>
+        <canvas ref={imageRef} className="w-full h-full md:h-full md:w-[100vw] canvas text-center fixed"></canvas>
       </div>
 
       <div className="shadow overlay absolute top-0 left-0 w-full h-full bg-black/50 z-1"></div>
@@ -154,7 +140,7 @@ const Works = () => {
         <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
           <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">apr-2024 - may-2024</span>
           <div className="title text-white text-[2rem] capitalize my-4">E-book store</div>
-          <p className="desc text-gray-300 text-[1.2rem] capitalize ">i created this website using HTML , CSS ,JS ,PHP and used MYSQL as database . 
+          <p className="desc text-gray-300 text-[1.4rem] md:text-[1.2rem]  capitalize ">i created this website using HTML , CSS ,JS ,PHP and used MYSQL as database . 
            also it has admin panel so that admin can manage whole website 
           </p>
           <a href="https://booksnaps.000webhostapp.com" className="desc text-white text-[1.4rem] px-4 py-2 bg-yellow-500 inline-block rounded-md mt-4 capitalize cursor-pointer hover:bg-gray-900 transition-all">live preview</a>
@@ -162,14 +148,14 @@ const Works = () => {
         <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
           <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">july-2024 - aug-2024</span>
           <div className="title text-white text-[2rem] capitalize my-4">expense managment system</div>
-          <p className="desc text-gray-300 text-[1.2rem] capitalize ">i created this website using REACT JS ,PRIME REACT, EXPRESS JS , TAILWIND CSS , NODE JS  and used MONGODB as database . 
+          <p className="desc text-gray-300 text-[1.4rem] md:text-[1.2rem] capitalize ">i created this website using REACT JS ,PRIME REACT, EXPRESS JS , TAILWIND CSS , NODE JS  and used MONGODB as database . 
           in this website user can store their transactions data and can analyze it periodically</p>
           <a href="https://abexpense.netlify.app/"  className="desc text-white text-[1.4rem] px-4 py-2 bg-yellow-500 inline-block rounded-md mt-4 capitalize cursor-pointer hover:bg-gray-900 transition-all">live preview</a>
         </div>
         <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
           <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">jan-2024 - jan-2024</span>
           <div className="title text-white text-[2rem] capitalize my-4">E-commerce gadget website</div>
-          <p className="desc text-gray-300 text-[1.2rem] capitalize ">i created this website using REACT JS , PRIME REACT, TAILWIND CSS .
+          <p className="desc text-gray-300 text-[1.4rem] md:text-[1.2rem] capitalize ">i created this website using REACT JS , PRIME REACT, TAILWIND CSS .
           this website is just like amazon , flipkart . user can buy different home gadgets </p>
           <a href="https://alkahf.netlify.app/"  className="desc text-white text-[1.4rem] px-4 py-2 bg-yellow-500 inline-block rounded-md mt-4 capitalize cursor-pointer hover:bg-gray-900 transition-all">live preview</a>
         </div>
@@ -181,17 +167,17 @@ const Works = () => {
 <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
   <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">apr-2022 - may-2025</span>
   <div className="title text-white text-[2rem] capitalize my-4">bachelor's of computer application</div>
-  <p className="desc text-gray-300 text-[1.2rem] capitalize">I am currently pursuing a Bachelor of Computer Applications (BCA) in my 3rd year at <b>Yashwantrao Chavan Maharashtra Open University (YCMOU) </b>, where I am developing strong foundational skills in computer science and software development</p>
+  <p className="desc text-gray-300 text-[1.4rem] md:text-[1.2rem] capitalize">I am currently pursuing a Bachelor of Computer Applications (BCA) in my 3rd year at <b>Yashwantrao Chavan Maharashtra Open University (YCMOU) </b>, where I am developing strong foundational skills in computer science and software development</p>
 </div> 
 <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
   <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">apr-2022 - may-2025</span>
   <div className="title text-white text-[2rem] capitalize my-4">Higher Secondary School Certificate (HSC)</div>
-  <p className="desc text-gray-300 text-[1.2rem] capitalize">I completed my Higher Secondary Education (HSC) in the Science stream with a focus on Mathematics, achieving 80% from <b>S.H.A. Rais high school and jr college</b>, which helped build a strong foundation in analytical thinking.</p>
+  <p className="desc text-gray-300 text-[1.4rem] md:text-[1.2rem] capitalize">I completed my Higher Secondary Education (HSC) in the Science stream with a focus on Mathematics, achieving 80% from <b>S.H.A. Rais high school and jr college</b>, which helped build a strong foundation in analytical thinking.</p>
 </div> 
 <div className="box md:h-[27vh] mt-4 text-start bg-gray-600/10 p-8 rounded-md">
   <span className="year text-white text-[1.5rem] capitalize font-bold border-2 border-yellow-500 px-4 py-2">apr-2022 - may-2025</span>
   <div className="title text-white text-[2rem] capitalize my-4">bachelor's of computer application</div>
-  <p className="desc text-gray-300 text-[1.2rem] capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aperiam quasi reprehenderit harum at a vitae quam. Libero unde voluptatem tempora hic distinctio veniam cumque obcaecati, quae labore quibusdam iusto.</p>
+  <p className="desc text-gray-300 text-[1.4rem] md:text-[1.2rem] capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aperiam quasi reprehenderit harum at a vitae quam. Libero unde voluptatem tempora hic distinctio veniam cumque obcaecati, quae labore quibusdam iusto.</p>
 </div> 
 
       </div>

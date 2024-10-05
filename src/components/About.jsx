@@ -70,7 +70,7 @@ const About = () => {
           <img
             src="../images/about2.jfif"
             alt=""
-            className="h-[50vh] rounded-md "
+            className="h-[50vh] rounded-md object-cover w-full"
           />
         </div>
         <div className="text capitalize md:w-[40vw]">
