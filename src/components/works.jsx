@@ -104,17 +104,19 @@ const Works = () => {
           trigger: ".works", // The container that triggers the scroll animation
           start: "top 0%", // Start when the top of the container hits the top of the viewport
           end: "top 0%", // End when the bottom of the container hits the bottom of the viewport
+          
           scrub: 2, // Smoothly "scrub" the timeline as you scroll
           pin: true, // Pin the container during the scroll
           // pinSpacing: false, // This will remove the white space
           markers: true,
+          scroller:"body"
         },
       });
 
       // Animate the frames based on scroll
       tl.to(frames, {
         currentIndex: frames.maxIndex,
-        duration:1.2,
+        duration:3.2,
         onUpdate: () => {
           loadImgFunction(Math.floor(frames.currentIndex));
         },

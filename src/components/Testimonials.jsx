@@ -13,16 +13,16 @@ const Testimonials = () => {
     mm.add("(min-width: 800px)", function () {
       gsap.from(".testimo-con .slide", {
         opacity: 0,
-        y: -500,
+        y: -600,
         delay: 1,
         duration: 1.5,
         //  stagger:1,
         scrollTrigger: {
-          trigger: ".testimo-con .slide",
+          trigger: ".testimo-con ",
           scrub: 2,
-          start: "top 10%",
-          end: "top 60%",
-          // markers:true
+          start: "top 40%",
+          end: "top 30%",
+          markers:true
         },
       });
     });

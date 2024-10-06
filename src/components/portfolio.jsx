@@ -58,12 +58,12 @@ console.log("rendered")
     tl.from('#portfolio', {
       scale: 0,
       delay: 1,
-      duration: 0.4,
+      duration: 1.4,
       scrollTrigger: {
         trigger: "#portfolio .portfolio-con .card",
         scrub: 2,
-        start: "top 300%",  // When the animation starts (adjust as needed)
-        end: 'top 80%',  
+        start: "top 50%",  // When the animation starts (adjust as needed)
+        end: 'top 70%',  
         // markers: true,   
       }
     });
