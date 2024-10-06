@@ -108,7 +108,7 @@ const Works = () => {
           scrub: 2, // Smoothly "scrub" the timeline as you scroll
           pin: true, // Pin the container during the scroll
           // pinSpacing: false, // This will remove the white space
-          markers: true,
+          // markers: true,
           scroller:"body"
         },
       });

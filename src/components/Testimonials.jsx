@@ -22,7 +22,7 @@ const Testimonials = () => {
           scrub: 2,
           start: "top 40%",
           end: "top 30%",
-          markers:true
+          // markers:true
         },
       });
     });
